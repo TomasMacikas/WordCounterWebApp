@@ -66,13 +66,13 @@ public class WordCounterService implements WordCounter {
 			countWordsInFile(f);
 		}
 		printWordsWithFreqs();
-		saveToFiles();
+		//saveToFiles();
 		
-//		try {
-//			saveToFilesUsingThreads();
-//		} catch (IOException e) {
-//			e.printStackTrace();
-//		}
+		try {
+			saveToFilesUsingThreads();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	@Async
