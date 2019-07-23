@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html xmlns:layout="http://www.w3.org/1999/xhtml" layout:decorate="~{fragments/main_layout}">
+
+<head>
+  <title>File Upload App - Upload Form</title>
+</head>
+
+<body>
+  <div layout:fragment="content">
+
+    <form method="POST" enctype="multipart/form-data" action="/">
+      <div class="input-group">
+        <div class="custom-file">
+          <input type="file" class="custom-file-input" name="file" id="filenameinput">
+          <label class="custom-file-label" for="file">Choose file</label>
+        </div>
+        <div class="input-group-append">
+          <input class="btn btn-outline-secondary" type="submit" value="Upload" />
+        </div>
+      </div>
+    </form>
+
+    <div th:if="${message}">
+      <p th:text="${message}" />
+    </div>
+
+    <div>
+      <ul>
+        <li th:each="file : ${files}">
+          <a th:href="${file}" th:text="${file}" />
+        </li>
+      </ul>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <form method="POST" enctype="w" action="/delete">
+          <input type="submit" class="float-right btn btn-outline-secondary" value="DeleteFiles" />
+        </form>
+      </div>
+      <div class="col">
+        <form method="POST" action="/result">
+          <input type="submit" class="btn btn-outline-secondary" value="Calculate" />
+        </form>
+      </div>
+    </div>
+
+  </div>
+</body>
+
+</html>

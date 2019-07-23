@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html xmlns:layout="http://www.w3.org/1999/xhtml" layout:decorate="~{fragments/main_layout}">
+
+<head>
+  <title>File Upload App - Results</title>
+</head>
+
+<body>
+  <div layout:fragment="content">
+    <h1>Files</h1>
+    <div>
+      <ul>
+        <li th:each="fil : ${file}">
+          <a th:href="${fil}" th:text="${fil}" />
+        </li>
+      </ul>
+    </div>
+
+    <h1>All Words Counted:</h1>
+
+    <div>
+      <ul>
+        <li th:each="word : ${words}">
+          <a th:text="${word}" />
+        </li>
+      </ul>
+    </div>
+  </div>
+</body>
+
+</html>
